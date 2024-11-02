@@ -1,7 +1,8 @@
 import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-     images: {
+ 
+  const nextConfig = {
+  images: {
     domains: ['assets.aceternity.com'],
   },
 };
@@ -12,7 +13,7 @@ export default withSentryConfig(nextConfig, {
 
 // Suppresses source map uploading logs during build
 silent: true,
-org: "CodeWithMe",
+org: "javascript-mastery",
 project: "javascript-nextjs",
 }, {
 // For all available options, see:
