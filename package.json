@@ -35,8 +35,7 @@
     "tar": "^7.4.3",
     "three": "^0.163.0",
     "three-globe": "^2.31.0",
-    "undici": "^6.20.1",
-    "vercel": "^32.3.0"
+    "undici": "^6.20.1"
   },
   "devDependencies": {
     "@types/node": "^20",
