@@ -9,7 +9,7 @@ export function TimelineDemo() {
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Construindo and launched Aceternity UI and Aceternity UI Pro from scratch
+            Construindo e launched Aceternity UI and Aceternity UI Pro from scratch
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -50,7 +50,7 @@ export function TimelineDemo() {
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
             I  Luccas runnn out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
+            integrate lorem Luccas Licascas.
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
             Luccas Stefani
