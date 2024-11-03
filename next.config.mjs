@@ -3,7 +3,7 @@ import {withSentryConfig} from '@sentry/nextjs';
  
   const nextConfig = {
   images: {
-    domains: ['assets.aceternity.com'],
+    domains: ['images.unsplash.com', 'assets.aceternity.com'],
   },
 };
 

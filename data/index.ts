@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const navItems = [
   { name: "Sobre", link: "#about" },
   { name: "Projetos", link: "#projects" },
@@ -10,7 +12,7 @@ export const gridItems = [
     id: 1,
     title: "Priorizo a colaboração do cliente, promovendo a comunicação aberta",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[56vh]",
     imgClassName: "",
     titleClassName: "justify-end",
     img: "/b1.png",
@@ -50,9 +52,9 @@ export const gridItems = [
   {
     id: 5,
     title: "Atualmente em busca de certificações..",
-    description: "A informação privilegiada",
+    description: "Informação privilegiada",
     className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+    imgClassName: "absolute right-0 bottom-0 md:w-96 w-70",
     titleClassName: "justify-center md:justify-start lg:justify-center",
     img: "/b5.svg",
     spareImg: "/grid.svg",
@@ -206,25 +208,31 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/LuccasStefani",
   },
-  {
-    id: 2,
-    img: "/twit.svg",
-  },
+  // {
+  //   id: 2,
+  //   img: "/twit.svg",
+  //   link: "https://github.com/LuccasStefani",
+  // },
   {
     id: 3,
     img: "/link.svg",
+    link: "https://github.com/LuccasStefani",
   },
   {
     id: 3,
     img: "/dribbble.svg",
+    link: "https://dribbble.com/yLuketa",
   },
   {
     id: 5,
     img: "/instagram.svg",
+    link: "https://www.instagram.com/pureux_design/?utm_source=ig_web_button_share_sheet",
   },
-  {
-    id: 6,
-    img: "/whastapp.svg",
-  },
+  // {
+  //   id: 6,
+  //   img: "/whastapp.svg",
+  //   link: "https://github.com/LuccasStefani",
+  // },
 ];

@@ -53,7 +53,7 @@ const Approach = () => {
         >
           <CanvasRevealEffect
             animationSpeed={3}
-            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
+            containerClassName="bg-sky-500 rounded-3xl overflow-hidden"
             colors={[[125, 211, 252]]}
           />
         </Card>
