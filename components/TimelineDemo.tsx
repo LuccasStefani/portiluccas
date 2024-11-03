@@ -8,7 +8,7 @@ export function TimelineDemo() {
       title: "2024",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <p className="dark:bg-black dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
             Construindo e launched Aceternity UI and Aceternity UI Pro from scratch
           </p>
           <div className="grid grid-cols-2 gap-4">
