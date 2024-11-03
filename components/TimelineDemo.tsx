@@ -5,11 +5,11 @@ import { Timeline } from "../components/ui/Timeline";
 export function TimelineDemo() {
   const data = [
     {
-      title: "2024",
+      title: "2022",
       content: (
         <div>
           <p className="dark:bg-black dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Construindo e launched Aceternity UI and Aceternity UI Pro from scratch
+            Assim como todo estudando de Ci
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image

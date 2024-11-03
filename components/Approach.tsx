@@ -35,8 +35,8 @@ const Approach = () => {
             containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
             colors={[
               // change the colors of the
-              [255, 166, 158],
-              [221, 255, 247],
+              [0, 0, 0],
+              [0, 0, 0],
             ]}
             dotSize={2}
           />
@@ -87,7 +87,7 @@ const Card = ({
       style={{
         //   add these two
         //   you can generate the color from here https://cssgradient.io/
-        background: "rgb(4,7,29)",
+        background: "rgb(0,0,0)",
         backgroundColor:
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
@@ -122,7 +122,7 @@ const Card = ({
         <h2
           // change text-3xl, add text-center
           className="dark:text-white text-center text-3xl opacity-0 group-hover/canvas-card:opacity-100
-         relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white 
+         relative z-10 text-white mt-4 font-bold group-hover/canvas-card:text-white 
          group-hover/canvas-card:-translate-y-2 transition duration-200"
         >
           {title}
@@ -155,7 +155,7 @@ const AceternityIcon = ({ order }: { order: string }) => {
         />
         <span
           className="inline-flex h-full w-full cursor-pointer items-center 
-        justify-center rounded-full bg-slate-950 px-5 py-2 text-purple backdrop-blur-3xl font-bold text-2xl"
+        justify-center rounded-full bg-black px-5 py-2 text-purple backdrop-blur-3xl font-bold text-2xl"
         >
           {order}
         </span>
