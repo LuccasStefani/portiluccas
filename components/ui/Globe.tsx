@@ -75,21 +75,21 @@ export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
 
   const defaultProps = {
-  pointSize: 1,
-  atmosphereColor: "#ffffff",           // Atmosfera em branco
-  showAtmosphere: true,
-  atmosphereAltitude: 0.1,
-  polygonColor: "rgba(255,255,255,0.7)", // Polígonos em branco translúcido
-  globeColor: "#333333",                 // Cor do globo em cinza escuro
-  emissive: "#000000",                   // Emissivo em preto para evitar brilho colorido
-  emissiveIntensity: 0.1,
-  shininess: 0.1,
-  arcTime: 2000,
-  arcLength: 0.9,
-  rings: 1,
-  maxRings: 3,
-  ...globeConfig,
-};
+    pointSize: 1,
+    atmosphereColor: "#ffffff",
+    showAtmosphere: true,
+    atmosphereAltitude: 0.1,
+    polygonColor: "rgba(255,255,255,0.7)",
+    globeColor: "#1d072e",
+    emissive: "#000000",
+    emissiveIntensity: 0.1,
+    shininess: 0.9,
+    arcTime: 2000,
+    arcLength: 0.9,
+    rings: 1,
+    maxRings: 3,
+    ...globeConfig,
+  };
 
   useEffect(() => {
     if (globeRef.current) {
@@ -98,52 +98,55 @@ export function Globe({ globeConfig, data }: WorldProps) {
     }
   }, [globeRef.current]);
 
- const _buildMaterial = () => {
-  if (!globeRef.current) return;
+  const _buildMaterial = () => {
+    if (!globeRef.current) return;
 
-  const globeMaterial = globeRef.current.globeMaterial() as unknown as {
-    color: Color;
-    emissive: Color;
-    emissiveIntensity: number;
-    shininess: number;
+    const globeMaterial = globeRef.current.globeMaterial() as unknown as {
+      color: Color;
+      emissive: Color;
+      emissiveIntensity: number;
+      shininess: number;
+    };
+    globeMaterial.color = new Color(globeConfig.globeColor);
+    globeMaterial.emissive = new Color(globeConfig.emissive);
+    globeMaterial.emissiveIntensity = globeConfig.emissiveIntensity || 0.1;
+    globeMaterial.shininess = globeConfig.shininess || 0.9;
   };
-  globeMaterial.color = new Color(globeConfig.globeColor || "#333333");
-  globeMaterial.emissive = new Color(globeConfig.emissive || "#000000");
-  globeMaterial.emissiveIntensity = globeConfig.emissiveIntensity || 0.1;
-  globeMaterial.shininess = globeConfig.shininess || 0.1;
-};
 
-const _buildData = () => {
-  const arcs = data;
-  let points = [];
-  for (let i = 0; i < arcs.length; i++) {
-    points.push({
-      size: defaultProps.pointSize,
-      order: arcs[i].order,
-      color: (t: number) => `rgba(255, 255, 255, ${1 - t})`,  // Arco branco
-      lat: arcs[i].startLat,
-      lng: arcs[i].startLng,
-    });
-    points.push({
-      size: defaultProps.pointSize,
-      order: arcs[i].order,
-      color: (t: number) => `rgba(255, 255, 255, ${1 - t})`,
-      lat: arcs[i].endLat,
-      lng: arcs[i].endLng,
-    });
-  }
+  const _buildData = () => {
+    const arcs = data;
+    let points = [];
+    for (let i = 0; i < arcs.length; i++) {
+      const arc = arcs[i];
+      const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
+      points.push({
+        size: defaultProps.pointSize,
+        order: arc.order,
+        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
+        lat: arc.startLat,
+        lng: arc.startLng,
+      });
+      points.push({
+        size: defaultProps.pointSize,
+        order: arc.order,
+        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
+        lat: arc.endLat,
+        lng: arc.endLng,
+      });
+    }
 
-  const filteredPoints = points.filter(
-    (v, i, a) =>
-      a.findIndex((v2) =>
-        ["lat", "lng"].every(
-          (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"]
-        )
-      ) === i
-  );
+    // remove duplicates for same lat and lng
+    const filteredPoints = points.filter(
+      (v, i, a) =>
+        a.findIndex((v2) =>
+          ["lat", "lng"].every(
+            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"]
+          )
+        ) === i
+    );
 
-  setGlobeData(filteredPoints);
-};
+    setGlobeData(filteredPoints);
+  };
 
   useEffect(() => {
     if (globeRef.current && globeData) {
@@ -233,17 +236,16 @@ export function WebGLRendererConfig() {
   useEffect(() => {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
-    gl.setClearColor(0x000000, 1);  // Fundo preto
-  }, [gl, size]);
+    gl.setClearColor(0xffaaff, 0);
+  }, []);
 
   return null;
 }
 
-
 export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
-scene.fog = new Fog(0x333333, 400, 2000); // Neblina em cinza escuro
+  scene.fog = new Fog(0xffffff, 400, 2000);
   return (
     <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />

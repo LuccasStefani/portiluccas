@@ -42,7 +42,7 @@ const Footer = () => {
               href={info.link} // link para cada rede social
               target="_blank" // abre o link em uma nova aba
               rel="noopener noreferrer" // segurança adicional ao abrir uma nova aba
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300 mt-9"
             >
               <img src={info.img} alt="icons" width={20} height={20} />
             </a>
