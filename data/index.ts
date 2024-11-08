@@ -91,8 +91,8 @@ export const projects = [
   },
   {
     id: 3,
-    title: "OurStore",
-    des: "Nesse App de loja de roupas feito para testar meus conhecimentos com React Native, aqui aprendi ainda mais lidar com componets",
+    title: "Clone Aplle",
+    des: "Bildind e Deploy Apple App",
     img: "/p3.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg",],
     link: "/ui.aiimg.com",
